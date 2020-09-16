@@ -48,7 +48,7 @@ class Api::V1::OrdersController < Api::V1::BaseController
   private
 
   def order_params
-    params.require(:order).permit(:id, :campaign_id, :total)
+    params.require(:order).permit(:id, :campaign_id, :total, :first_name, :last_name, :address_line_1, :address_line_2. :address_line_3, :handling_and_shipping)
   end
 
   def render_error
