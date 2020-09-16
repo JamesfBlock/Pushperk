@@ -1,0 +1,109 @@
+
+<!-- Menu Group (Home) -->
+<div>
+  <!-- Main Header Item -->
+  <%= link_to root_path do %>
+  <div class="main_item">
+    <span>
+        <i class="fas fa-home"></i> <span style="margin-left:10px; ">Home</span>
+    </span>
+  </div>
+
+  <!-- Sub Menu Items -->
+  <% [].each do |item| %>
+  <div class="submenu_item">
+    <span><%=item[:title]%></span>
+  </div>
+  <% end %>
+
+</div>
+<% end %>
+<!--end -->
+
+
+<!-- Menu Group (Campaigns) -->
+<div>
+  <!-- Main Header Item -->
+  <%= link_to campaigns_path do %>
+    <div class="main_item selected">
+      <span>
+          <i class="fas fa-box"></i>
+          <span style="margin-left:10px;">
+            Campaigns
+          </span>
+      </span>
+    </div>
+  <% end %>
+
+  <!-- Sub Menu Items -->
+  <% [].each do |item| %>
+  <div class="submenu_item">
+    <span><%=item[:title]%></span>
+  </div>
+  <% end %>
+
+</div>
+<!--end -->
+
+
+<!-- Menu Group (Products) -->
+<div>
+  <!-- Main Header Item -->
+  <%= link_to products_path do %>
+  <div class="main_item">
+    <span>
+        <i class="fas fa-store"></i> <span style="margin-left:10px; ">Products</span>
+    </span>
+  </div>
+ <% end %>
+  <!-- Sub Menu Items -->
+  <% [].each do |item| %>
+  <div class="submenu_item">
+    <span><%=item[:title]%></span>
+  </div>
+  <% end %>
+
+</div>
+<!--end -->
+
+
+<!-- Menu Group (Orders) -->
+<div>
+
+  <%= link_to orders_path do %>
+  <!-- Main Header Item -->
+  <div class="main_item">
+    <span>
+        <i class="fas fa-tags"></i> <span style="margin-left:10px; ">Orders</span>
+    </span>
+  </div>
+ <% end %>
+  <!-- Sub Menu Items -->
+  <% [].each do |item| %>
+  <div class="submenu_item">
+    <span><%=item[:title]%></span>
+  </div>
+  <% end %>
+
+</div>
+<!--end -->
+
+<!-- Menu Group (Settings) -->
+  <div>
+    <!-- Main Header Item -->
+    <div class="main_item">
+      <span>
+          <i class="fas fa-cogs"></i> <span style="margin-left:10px; ">Settings</span>
+      </span>
+    </div>
+
+    <!-- Sub Menu Items -->
+    <% [].each do |item| %>
+      <div class="submenu_item">
+        <span><%=item[:title]%></span>
+      </div>
+    <% end %>
+
+</div>
+<!--end -->
+

@@ -1,0 +1,120 @@
+<p id="notice"><%= notice %></p>
+
+<div class="pushBox" style="border: 1px solid #E4E8EE; border-radius: 5px;">
+  <div style="padding: 20px; ">
+    <%= link_to campaigns_path do %>
+    <div style="margin-bottom: 15px;">
+      <i class="fas fa-arrow-left"></i><span style="margin-left: 10px; font-size: 12px;">Campaigns</span>
+    </div>
+    <% end %>
+
+    <div style="font-size: 15px;">
+      <div class="d-flex justify-content-start align-items-center">
+        <div style="height: 40px; width: 40px; background:grey;"></div>
+        <div style="margin-left: 20px;">
+          <div><%= @campaign.name %></div>
+          <div style="font-size: 12px;"><%= @campaign.description %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding:15px 20px; background: #F8FBFD; color: #9A9DAA; font-size: 12px; border-top: 1px solid #E4E8EE;">
+    <div>Created</div>
+    <div><%= @campaign.created_at %></div>
+  </div>
+</div>
+
+<div class="pushBox" style="border: 1px solid #E4E8EE; border-radius: 5px; margin-top: 20px;">
+  <div style="font-size: 15px;" class="d-flex justify-content-lg-between align-items-center">
+    <div style="padding: 20px;">
+      Products (<%= @campaign_items.size %>)
+    </div>
+    <div style="padding: 10px;">
+      <%= link_to new_campaign_item_path do %>
+      <div style="border: 1px solid #E4E8EE; padding: 5px 10px; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);font-size: 12px;user-select: none;cursor: pointer;">
+        <span>Add Product</span><i class="fas fa-plus" style="margin-left: 10px;"></i>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <table class="table" id="campaignItem">
+    <thead>
+      <tr>
+        <th scope="col">Product</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+         <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @campaign_items.each do |campaign_item| %>
+      <tr>
+        <td scope="row"><img src="<%= campaign_item.product.image_url %>" style="height:20px;"></td>
+        <td><%= campaign_item.product.name %></td>
+        <td><%= campaign_item.product.description %></td>
+        <td>£<%= campaign_item.product.price %></td>
+        <td>
+          <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn bg-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              ...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <%= link_to 'View Product', product_path(campaign_item.product_id), class: 'dropdown-item' %>
+            </div>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<div class="pushBox" style="border: 1px solid #E4E8EE; border-radius: 5px; margin-top: 20px;">
+  <div style="padding: 20px; font-size: 15px;">
+    Order History (<%= @orders.size %>)
+  </div>
+  <div style="border-top: 1px solid #E4E8EE">
+    <table class="table" id="campaignItem">
+    <thead>
+      <tr>
+        <th scope="col">Order Date</th>
+        <th scope="col">Name</th>
+        <th scope="col">Handling & Shipping</th>
+        <th scope="col">Gross Total</th>
+        <th scope="col">Taxes</th>
+        <th scope="col">Total</th>
+        <th scope="col">Ordered By</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+      <tr>
+      <td><%= order.order_date %></td>
+      <td><%= order.first_name %> <%= order.last_name %></td>
+      <td><%= order.handling_and_shipping %></td>
+      <td><%= order.subtotal %></td>
+      <td><%= order.taxes %></td>
+      <td><%= order.total %></td>
+      <td><%= order.ordered_by_id %></td>
+      <td>
+        <% if order.status == 'Open' %>
+        <span class="badge badge-primary">
+          <%= order.status %>
+        </span>
+        <% else %>
+         <span class="badge badge-success" style="color: white">
+          <%= order.status %>
+        </span>
+        <%end%>
+      </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>

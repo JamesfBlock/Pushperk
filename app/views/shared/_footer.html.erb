@@ -1,0 +1,12 @@
+ <div style="text-align: center;font-size: 10px;">
+
+   <div>
+     <% if user_signed_in? %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete%>
+      <% else %>
+        <%= link_to "Login", new_user_session_path %>
+      <% end %>
+    </div>
+       <div>Version: 1.001</div>
+     <div>© 2020 Pushperk Limited</div>
+</div>

@@ -1,0 +1,30 @@
+
+<%= simple_form_for(@order) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.association :campaign %>
+    <%= f.input :order_date %>
+    <%= f.input :status %>
+    <%= f.input :title %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :address_line_1 %>
+    <%= f.input :address_line_2 %>
+    <%= f.input :address_line_3 %>
+    <%= f.input :city %>
+    <%= f.input :county %>
+    <%= f.input :postcode %>
+    <%= f.input :ordered_by_id %>
+
+    <%= f.input :handling_and_shipping %>
+    <%= f.input :subtotal %>
+    <%= f.input :taxes %>
+    <%= f.input :total %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

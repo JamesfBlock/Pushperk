@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Campaigns</h1>
+
+<div class="pushBox" style="border: 1px solid #E4E8EE; border-radius: 5px; margin-top: 20px;">
+  <div style="font-size: 15px;" class="d-flex justify-content-lg-between align-items-center">
+    <div style="padding: 20px;">
+      Campaign (<%= @campaigns.size %>)
+    </div>
+    <div style="padding: 10px;">
+      <%= link_to new_campaign_path do %>
+      <div style="border: 1px solid #E4E8EE; padding: 5px 10px; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);font-size: 12px;user-select: none;cursor: pointer;">
+        <span>Add Campaign</span><i class="fas fa-plus" style="margin-left: 10px;"></i>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <table class="table" id="campaignItem">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Active</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @campaigns.each do |campaign| %>
+      <tr>
+        <td><%= campaign.name %></td>
+        <td><%= campaign.description %></td>
+        <td>
+          <% if campaign.active == true %>
+            <i class="fas fa-check"></i>
+          <%else%>
+            <i class="fas fa-times"></i>
+          <%end%>
+
+
+          </td>
+        <td><%= link_to 'View Campaign', campaign %></td>
+        <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
+        <td><%= link_to 'Delete', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+</div>

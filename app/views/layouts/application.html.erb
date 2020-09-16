@@ -7,14 +7,57 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
   <body>
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
+    <div>
+      <div class="row" style="margin:0px;">
+         <div class="col-2" style="background:#EEEDED; padding: 0px !important;">
+            <!-- STATIC SECTION -->
+            <div style="height:calc(100vh - 75px);">
+            <div style="text-align: center; padding: 10px; background: #e3e3e3">
 
-    <%= yield %>
+              <div style="padding:20px;">
+                 <div class="d-flex justify-content-center align-items-center">
+                    <div>
+                       <%= image_tag 'logo.png', style: 'height:50px'%>
+                    </div>
+                    <div>
+                      <span style="margin-left: 20px; color:#5E69F2; font-size: 20px;">PushPerk</span>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <%= render 'shared/sidebar' %>
+          </div>
+          <div style="height:75px;">
+            <%= render 'shared/footer' %>
+          </div>
+
+        </div>
+
+         <div class="col-10" style="padding: 0px; background: white;">
+          <div style="height:50px; padding: 0px 30px" class="d-flex justify-content-end align-items-center">
+            <div>
+              <i class="fas fa-bell"></i>
+              <i class="fas fa-user" style="margin-left: 10px"></i>
+            </div>
+          </div>
+            <div style="padding: 0px 30px; height: calc(100vh - 100px);">
+              <%= yield %>
+
+               <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+
+            </div>
+
+        </div>
+
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,97 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Campaign:</strong>
+  <%= @order.campaign_id %>
+</p>
+
+<p>
+  <strong>Order date:</strong>
+  <%= @order.order_date %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @order.title %>
+</p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @order.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @order.last_name %>
+</p>
+
+<p>
+  <strong>Address line 1:</strong>
+  <%= @order.address_line_1 %>
+</p>
+
+<p>
+  <strong>Address line 2:</strong>
+  <%= @order.address_line_2 %>
+</p>
+
+<p>
+  <strong>Address line 3:</strong>
+  <%= @order.address_line_3 %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @order.city %>
+</p>
+
+<p>
+  <strong>County:</strong>
+  <%= @order.county %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @order.country %>
+</p>
+
+<p>
+  <strong>Ordered By:</strong>
+  <%= @order.ordered_by_id %>
+</p>
+
+
+<p>
+  <strong>Last Updated:</strong>
+  <%= @order.updated_at %>
+</p>
+
+<p>
+  <strong>Handling:</strong>
+  <%= @order.handling_and_shipping %>
+</p>
+
+<p>
+  <strong>Gross Total:</strong>
+  <%= @order.subtotal %>
+</p>
+
+<p>
+  <strong>Taxes:</strong>
+  <%= @order.taxes %>
+</p>
+
+<p>
+  <strong>Net Total:</strong>
+  <%= @order.total %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
